@@ -1,41 +1,81 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
 
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sample HTML5 Generator</title>
+  <link rel="stylesheet" href="sample.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+  
+  
+  <script src="jquery-1.4.2.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    var template = new Image(), canvas, context;
+    
+    $(template).load(function(){
+      setup();
+    });
+    
+    function setup(){
+      // Setup Canvas
+      canvas  = document.createElement('canvas');
+      context = canvas.getContext('2d');
+      
+      // Setup CSS
+      $("head").append("<style type='text/css'></style>");
+      changeTileColor($("li:first"));
+      
+      $('ul').delegate('li', 'click', function(e){
+        changeTileColor($(this));
+      });
+    }
+    
+    function changeTileColor($el){
+      
+      var $colors = $el.children(),
+          color = $colors.first().css('backgroundColor'),
+          background = $colors.last().css('backgroundColor');
+      
+      // Clears the canvas every time
+      canvas.width = 100;
+      canvas.height = 100;
+      
+      context.fillStyle = color;
+      context.fillRect(0, 0, canvas.width, canvas.height);
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
+      context.globalCompositeOperation = "destination-out";
+      
+      // Apply the image
+      context.drawImage( template, 0, 0);
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <meta name="theme-color" content="#fafafa">
-</head>
-
-<body>
-  <!--[if IE]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
-
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+      // Generate the base64 encoded string
+      var data = canvas.toDataURL('image/png'),
+          css  = "body { background: " + background + " url(" + data + ") repeat; }";
+          
+      $("style").replaceWith("<style type='text/css'>" + css + "</style>");
+    }
+    
+    template.src = "sample.png";
   </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</head>
+<body>
+  <div>Click to Change Background Color
+  <ul>
+    <li>
+      <span style="background: #AA0000"></span>
+      <span style="background: #BB0000"></span>
+    </li>
+    <li>
+      <span style="background: #990d84"></span>
+      <span style="background: #cb31b4"></span>
+    </li>
+    <li>
+      <span style="background: #454543"></span>
+      <span style="background: #81823b"></span>
+    </li>
+    <li>
+      <span style="background: #3b7782"></span>
+      <span style="background: #2babc2"></span>
+    </li>
+  </ul>
+  </div>
 </body>
-
 </html>
