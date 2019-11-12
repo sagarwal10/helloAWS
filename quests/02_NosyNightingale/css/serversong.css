@@ -1,0 +1,71 @@
+body {
+    font-family: 'Quicksand','Raleway','sans-serif';
+    text-align:center;
+    display: none; /* will fade in on ready */
+    text-shadow: 0px 0px 2px black;
+}
+
+#ss_content {
+    text-align:center;
+}
+
+#ss_title {
+    margin-top: 20px;
+    font-size: 36px;
+    color: darkblue;
+    text-shadow: 0px 0px 5px black;
+}
+
+.ss_selector_prompt {
+    font-size: 24px;
+    color: teal;
+}
+
+.ss_dropdown {
+    color:teal;
+    font-size: 24px;
+    background-color: lightgray;
+}
+
+.ss_dropdown_item {
+    font-size: 50px;
+    color: red;
+    margin-top: 20px;
+}
+
+#ss_patterns_input {
+    width: 800px;
+    height: 175px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    padding: 10px;
+
+    font-size: 22px;
+    font-family: 'Courier New','Fixed';
+    text-align:center;
+
+    overflow:auto;
+    resize: none;
+    
+    margin-top: 20px;
+}
+
+#ss_start_button {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    color:darkblue;
+    background-color:lightblue;
+    border: 1px solid lightblue;
+    transition: 0.25s;
+    text-shadow: 0px 0px 1px black;
+}
+#ss_start_button:hover {
+    background-color: aliceblue;
+}
+#ss_start_button:active {
+    background-color: white;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

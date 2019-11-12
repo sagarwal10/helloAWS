@@ -1,0 +1,1 @@
+aws s3 cp /Users/hiepluong/Documents/GitHub/helloAWS/docs/quests/Eliza/s3 s3://eliza/myfolder --recursive  --exclude *.tmp
