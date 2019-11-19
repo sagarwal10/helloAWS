@@ -23,7 +23,7 @@ import boto3
 transcribe = boto3.client('transcribe')
 
 job_name = "job name"
-job_uri = "https://S3 endpoint/test-transcribe/answer2.wav"
+job_uri = "https://hluongbabeflow.s3-us-west-2.amazonaws.com/c51a7079-d5ae-4fcd-93aa-aa450f240fe4.mp3"
 
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,

@@ -1,5 +1,5 @@
 # MQ01: Start an EC2 instance on AWS
-ssh -i "/Users/hiepluong/Dropbox/FHDA_CC/AWS/Quests/Oct14.pem" ec2-user@ec2-13-57-228-54.us-west-1.compute.amazonaws.com
+ssh -i /Users/hiepluong/Dropbox/FHDA_CC/AWS/Quests/Nov11.pem" ec2-user@ec2-34-222-45-166.us-west-2.compute.amazonaws.com
 sudo yum update
 ls -lha
 
@@ -7,7 +7,7 @@ ls -lha
 sudo useradd anand
 wget https://quests.nonlinearmedia.org/keys/cs55a_quest_1.id_rsa.pub
 sudo cp /tmp/cs55a_quest_1.id_rsa.pub ~anand/.ssh/authorized_keys
-sudo ls -la ~anand
+sudo ls -la ~anandexit
 sudo chmod 700 ~anand/.ssh
 sudo chmod 644 ~anand/.ssh/authorized_keys
 sudo chown anand ~anand/.ssh

@@ -16,7 +16,7 @@ waiting for the speech synthesis to complete and fetching the whole audio stream
 at once are an option.
 
 To test the application, run 'python server.py' and then open the URL
-displayed in the terminal in a web browser (see index.html for a list of
+displayed in the terminal in a web browser (see requirements.txt for a list of
 supported browsers). The address and port for the server can be passed as
 parameters to server.py. For more information, run: 'python server.py -h'
 """
@@ -57,7 +57,7 @@ HTTP_STATUS = {"OK": ResponseStatus(code=200, message="OK"),
                "NOT_FOUND": ResponseStatus(code=404, message="Not found"),
                "INTERNAL_SERVER_ERROR": ResponseStatus(code=500, message="Internal server error")}
 PROTOCOL = "http"
-ROUTE_INDEX = "/index.html"
+ROUTE_INDEX = "/requirements.txt"
 ROUTE_VOICES = "/voices"
 ROUTE_READ = "/read"
 
